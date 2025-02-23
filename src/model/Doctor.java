@@ -1,19 +1,23 @@
 package model;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 
 public class Doctor {
     Integer doctorId;
     String doctorName;
-    HashMap<TimeSlot,Boolean> availability;
+    HashMap<TimeSlot, Boolean> availability;
     Speciality speciality;
 
-    public <V, K> Doctor(int doctorId, String doctorName, HashMap<TimeSlot,Boolean> availability, Speciality speciality) {
+    public <V, K> Doctor(int doctorId, String doctorName, HashMap<TimeSlot, Boolean> availability, Speciality speciality) {
         this.doctorId=doctorId;
         this.doctorName=doctorName;
         this.availability=availability;
         this.speciality=speciality;
+    }
+
+    public Doctor() {
     }
 
     public Integer getDoctorId() {

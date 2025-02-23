@@ -1,12 +1,8 @@
 package service;
 
-import advice.PatientNotPresentException;
 import mode.Print;
 import model.Patients;
 import repository.PatientsRepository;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class PatientService {
     PatientsRepository patientsRepository;

@@ -1,7 +1,10 @@
 package repository;
 
-import advice.PatientNotPresentException;
+import advice.PatientAlreadyPresentException;
+import model.AvailableDoctors;
+import model.Doctor;
 import model.Patients;
+import model.Speciality;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +15,7 @@ public class PatientsRepository {
 
     public void registerPatient(Patients patients){
         if(patientsMap.containsKey(patients.getPatientId())){
-            throw new PatientNotPresentException();
+            throw new PatientAlreadyPresentException();
         }
         patientsMap.put(patients.getPatientId(),patients);
     }

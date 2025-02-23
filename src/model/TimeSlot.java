@@ -17,6 +17,10 @@ public class TimeSlot {
         this.startTime=startTime;
         this.endTime=endTime;
     }
+
+    public TimeSlot() {
+    }
+
     //Parsing input String (HH:MM-HH:MM) to Datetime format/TimeSlot Object.
     public static TimeSlot parse(String timeRange){
         String[] times=timeRange.split("-");
@@ -34,6 +38,13 @@ public class TimeSlot {
 
     public void setStartTime(LocalTime startTime) {
         this.startTime = startTime;
+    }
+    public LocalTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalTime endTime) {
+        this.endTime = endTime;
     }
 
     @Override
