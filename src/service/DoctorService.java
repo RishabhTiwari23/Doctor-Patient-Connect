@@ -11,6 +11,7 @@ import repository.DoctorRepository;
 import util.utils;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.util.HashMap;
 import java.util.List;
 
 public class DoctorService {
@@ -26,11 +27,11 @@ public class DoctorService {
             doctorRepository.registerDoctor(doctor);
             print.printData("Welcome "+doctor.getDoctorName());
     }
-    public void addAvailability(Integer doctorId, String timeSlot){
+    public void addAvailability(Integer doctorId, String timeSlot, HashMap<TimeSlot, Boolean> availableTimeSlot){
         TimeSlot parse = TimeSlot.parse(timeSlot);
         // Check Slot 30 mins
         if(ChronoUnit.MINUTES.between(parse.getStartTime(),parse.getEndTime())%60 == 30){
-            doctorRepository.addAvailability(doctorId,parse);
+            doctorRepository.addAvailability(doctorId,parse,availableTimeSlot);
             print.printData("Done Doc!");
         } else {
             throw new SlotException(

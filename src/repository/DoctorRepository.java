@@ -30,13 +30,12 @@ public class DoctorRepository {
         }
         doctorsForSpecialization.get(doctor.getSpeciality()).add(doctor);
     }
-    public void addAvailability(Integer docId,TimeSlot timeSlot){
+    public void addAvailability(Integer docId,TimeSlot timeSlot,HashMap<TimeSlot, Boolean> availableTimeSlot){
         if(!doctors.containsKey(docId)){
             throw new DoctorNotPresentException();
         }
         Doctor doctor=doctors.get(docId);
-        HashMap<TimeSlot, Boolean> slots = doctor.getAvailability();
-        slots.put(timeSlot,true);
+        availableTimeSlot.put(timeSlot,true);
         doctors.put(docId,doctor);
     }
     public List<Doctor> getDoctorsBySpeciality(Speciality specialization){

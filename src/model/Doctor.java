@@ -10,10 +10,9 @@ public class Doctor {
     HashMap<TimeSlot, Boolean> availability;
     Speciality speciality;
 
-    public <V, K> Doctor(int doctorId, String doctorName, HashMap<TimeSlot, Boolean> availability, Speciality speciality) {
+    public <V, K> Doctor(int doctorId, String doctorName, Speciality speciality) {
         this.doctorId=doctorId;
         this.doctorName=doctorName;
-        this.availability=availability;
         this.speciality=speciality;
     }
 
