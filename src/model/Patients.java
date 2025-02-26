@@ -9,6 +9,11 @@ public class Patients {
     String patientName;
     HashMap<Doctor, List<TimeSlot>> bookedSlots;
 
+    public Patients(Integer patientId, String patientName) {
+        this.patientId = patientId;
+        this.patientName = patientName;
+    }
+
     public Integer getPatientId() {
         return patientId;
     }

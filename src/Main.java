@@ -25,6 +25,9 @@ public class Main {
         getDoctorAvailability(sc,doctor,doctorService);
         System.out.print("showAvailBySpeciality: ");
         doctorService.showAvailableSlotsBySpeciality(Speciality.valueOf(sc.nextLine()));
+        System.out.print("Register patient-");
+        Patients patients=getPatientDetails(sc);
+        patientService.registerPatient(patients);
         //Patient
     }
 
@@ -38,19 +41,6 @@ public class Main {
         String name = sc.nextLine();
         System.out.println("Enter Speciality (Cardiologist/Dermatologist/Other): ");
         Speciality speciality = Speciality.valueOf(sc.nextLine());
-        HashMap<TimeSlot, Boolean> availableTimeSlot = new HashMap<>();
-
-//        System.out.println("Enter available time slots (e.g., 09:00-09:30), type 'done' to finish:");
-//        while (true) {
-//            String timeInput = sc.nextLine();
-//            if (timeInput.equalsIgnoreCase("done")) break;
-//            try {
-//                TimeSlot timeSlot = TimeSlot.parse(timeInput);
-//                availableTimeSlot.put(timeSlot,true);
-//            } catch (Exception e) {
-//                System.out.println("Invalid format! Please enter in HH:mm-HH:mm format (30-minute intervals).");
-//            }
-//        }
         return new Doctor(id, name, speciality);
     }
     public static void getDoctorAvailability(Scanner sc,Doctor doctor,DoctorService doctorService){
@@ -70,6 +60,14 @@ public class Main {
             }
         }
 
+    }
+    public static Patients getPatientDetails(Scanner sc){
+        System.out.print("Enter Patient ID: ");
+        int id= sc.nextInt();
+        sc.nextLine();
+        System.out.println("Enter Patient name: ");
+        String name=sc.nextLine();
+        return new Patients(id,name);
     }
 
 }
